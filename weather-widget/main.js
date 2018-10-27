@@ -41,7 +41,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Hot Weather Widget</h1>\n<div class=\"element\">\n  <div class=\"element-left\">\n    <app-element-left (changeByType)=\"changeType($event)\"></app-element-left>\n  </div>\n  <div class=\"element-right\">\n    <app-temperatur></app-temperatur>\n    <app-teddy-bear></app-teddy-bear>\n  </div>\n  <div class=\"clear\"> </div>\n</div>\n<div class=\"copy-right\">\n  <p>© 2015 Hot Weather Widget. All rights reserved | Design by  <a href=\"http://w3layouts.com/\" target=\"_blank\">  W3layouts </a></p>\n</div>\n\n"
+module.exports = "<h1>Hot Weather Widget</h1>\n<div class=\"element\">\n  <div class=\"element-left\">\n    <app-element-left (changeByType)=\"changeType($event)\" (selectByResort)=\"selectResort($event)\"></app-element-left>\n  </div>\n  <div class=\"element-right\">\n    <app-temperatur [weather]=\"resort.weather\"></app-temperatur>\n    <app-teddy-bear [socialInfo]=\"resort.social_info\"></app-teddy-bear>\n  </div>\n  <div class=\"clear\"> </div>\n</div>\n<div class=\"copy-right\">\n  <p>© 2015 Hot Weather Widget. All rights reserved | Design by  <a href=\"http://w3layouts.com/\" target=\"_blank\">  W3layouts </a></p>\n</div>\n\n"
 
 /***/ }),
 
@@ -56,6 +56,7 @@ module.exports = "<h1>Hot Weather Widget</h1>\n<div class=\"element\">\n  <div c
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./data */ "./src/app/data.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -63,14 +64,20 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 
+
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
         this.title = 'weather-widget';
         this.type = '';
+        this.resort = _data__WEBPACK_IMPORTED_MODULE_1__["resorts"][1];
     }
     AppComponent.prototype.changeType = function (value) {
         console.log(value);
         this.type = value;
+    };
+    AppComponent.prototype.selectResort = function (value) {
+        console.log(value);
+        this.resort = value;
     };
     AppComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -357,7 +364,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"element-bg-img\"><img src=\"assets/images/1.jpg\" alt=\"\" class=\"img-responsive\"> </div>\n<div class=\"element-left-bottom\">\n  <div class=\"ele-strip\">\n    <ul>\n      <li><a href=\"#\" (click)=\"change($event)\">Hotel</a></li>\n      <li><a href=\"#\" (click)=\"change($event)\">Fishing</a></li>\n      <li><a href=\"#\" (click)=\"change($event)\">Tours</a></li>\n      <li><a href=\"#\" (click)=\"change($event)\">Weather</a></li>\n      <li><a href=\"#\" (click)=\"change($event)\">All</a></li>\n    </ul>\n  </div>\n  <div class=\"village\">\n    <h3>Righteous indignation & like</h3>\n    <span class=\"line\"> </span>\n    <div class=\"activity_box\">\n      <div class=\"scrollbar\" id=\"style-2\" *ngIf=\"resorts$ | async as resorts; else loadingTemplate\">\n        <app-resort\n                *ngFor=\"let resort of resorts | resortsFilter:type\"\n                [resort]=\"resort\"\n        >\n        </app-resort>\n      </div>\n    </div>\n  </div>\n</div>\n<ng-template #loadingTemplate>\n  ... loading\n</ng-template>"
+module.exports = "<div class=\"element-bg-img\"><img src=\"assets/images/1.jpg\" alt=\"\" class=\"img-responsive\"> </div>\n<div class=\"element-left-bottom\">\n  <div class=\"ele-strip\">\n    <ul>\n      <li><a href=\"#\" (click)=\"change($event)\">Hotel</a></li>\n      <li><a href=\"#\" (click)=\"change($event)\">Fishing</a></li>\n      <li><a href=\"#\" (click)=\"change($event)\">Tours</a></li>\n      <li><a href=\"#\" (click)=\"change($event)\">Weather</a></li>\n      <li><a href=\"#\" (click)=\"change($event)\">All</a></li>\n    </ul>\n  </div>\n  <div class=\"village\">\n    <h3>Righteous indignation & like</h3>\n    <span class=\"line\"> </span>\n    <div class=\"activity_box\">\n      <div class=\"scrollbar\" id=\"style-2\" *ngIf=\"resorts$ | async as resorts; else loadingTemplate\">\n        <app-resort\n                *ngFor=\"let resort of resorts | resortsFilter:type\"\n                [resort]=\"resort\"\n                (click)=\"select(resort)\"\n        >\n        </app-resort>\n      </div>\n    </div>\n  </div>\n</div>\n<ng-template #loadingTemplate>\n  ... loading\n</ng-template>"
 
 /***/ }),
 
@@ -387,6 +394,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var ElementLeftComponent = /** @class */ (function () {
     function ElementLeftComponent() {
         this.changeByType = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.selectByResort = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
         this.resorts$ = _data__WEBPACK_IMPORTED_MODULE_1__["resorts$"];
         this.type = '';
     }
@@ -395,12 +403,19 @@ var ElementLeftComponent = /** @class */ (function () {
         this.type = li.innerHTML;
         this.changeByType.emit(li.innerHTML);
     };
+    ElementLeftComponent.prototype.select = function (resort) {
+        this.selectByResort.emit(resort);
+    };
     ElementLeftComponent.prototype.ngOnInit = function () {
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
         __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"])
     ], ElementLeftComponent.prototype, "changeByType", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"])
+    ], ElementLeftComponent.prototype, "selectByResort", void 0);
     ElementLeftComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-element-left',
@@ -434,7 +449,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"activity-row\" (click)=\"select(resort.id)\">\n  <div class=\"activity-desc\">\n    <h5>Resort Address</h5>\n    <p>{{resort.address}}</p>\n    <h6>Tel: {{resort.phone}}</h6>\n  </div>\n  <div class=\"activity-img\">\n    <ul>\n      <li><img src=\"{{resort.img}}\"  alt=\"{{resort.social_info.title}}\" style=\"width: 50px;\"/></li>\n    </ul>\n  </div>\n  <div class=\"clear\"> </div>\n</div>"
+module.exports = "<div class=\"activity-row\">\n  <div class=\"activity-desc\">\n    <h5>Resort Address</h5>\n    <p>{{resort.address}}</p>\n    <h6>Tel: {{resort.phone}}</h6>\n  </div>\n  <div class=\"activity-img\">\n    <ul>\n      <li><img src=\"{{resort.img}}\"  alt=\"{{resort.social_info.title}}\" style=\"width: 50px;\"/></li>\n    </ul>\n  </div>\n  <div class=\"clear\"> </div>\n</div>"
 
 /***/ }),
 
@@ -462,18 +477,10 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var ResortComponent = /** @class */ (function () {
     function ResortComponent() {
     }
-    ResortComponent.prototype.select = function (id) {
-        console.log('id - ', id);
-        this.selectByResort = id;
-    };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
         __metadata("design:type", Object)
     ], ResortComponent.prototype, "resort", void 0);
-    __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
-        __metadata("design:type", Number)
-    ], ResortComponent.prototype, "selectByResort", void 0);
     ResortComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-resort',
@@ -506,7 +513,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"teddy-bear\">\n  <div class=\"teddy-text\">\n    <h4>Nam libero voluptatem</h4>\n    <span class=\"w-line\"> </span>\n    <img src=\"assets/images/b1.jpg\" alt=\"\"  class=\"img-responsive\">\n  </div>\n  <div class=\"teddy-follow\">\n    <ul>\n      <li class=\"folw-h\"><h3>2850</h3>\n        <p>Followers</p>\n      </li>\n      <li><h3>675</h3>\n        <p>Following</p>\n      </li>\n    </ul>\n  </div>\n</div>\n"
+module.exports = "<div class=\"teddy-bear\">\n  <div class=\"teddy-text\">\n    <h4>{{socialInfo.title}}</h4>\n    <span class=\"w-line\"> </span>\n    <img src=\"{{socialInfo.img}}\" alt=\"\"  class=\"img-responsive\">\n  </div>\n  <div class=\"teddy-follow\">\n    <ul>\n      <li class=\"folw-h\"><h3>{{socialInfo.followers}}</h3>\n        <p>Followers</p>\n      </li>\n      <li><h3>{{socialInfo.following}}</h3>\n        <p>Following</p>\n      </li>\n    </ul>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -534,15 +541,16 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var TeddyBearComponent = /** @class */ (function () {
     function TeddyBearComponent() {
     }
-    TeddyBearComponent.prototype.ngOnInit = function () {
-    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], TeddyBearComponent.prototype, "socialInfo", void 0);
     TeddyBearComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-teddy-bear',
             template: __webpack_require__(/*! ./teddy-bear.component.html */ "./src/app/element-right/teddy-bear/teddy-bear.component.html"),
             styles: [__webpack_require__(/*! ./teddy-bear.component.css */ "./src/app/element-right/teddy-bear/teddy-bear.component.css")]
-        }),
-        __metadata("design:paramtypes", [])
+        })
     ], TeddyBearComponent);
     return TeddyBearComponent;
 }());
@@ -569,7 +577,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"temperatur\">\n  <h5>Et harum quidem</h5>\n  <span class=\"w-line\"> </span>\n  <span class=\"cloud\"> </span>\n  <h2>14<sup class=\"degree\">°</sup></h2>\n  <h6>Water 20<sup class=\"degree\">°</sup></h6>\n</div>\n"
+module.exports = "<div class=\"temperatur\">\n  <h5>{{weather.title}}</h5>\n  <span class=\"w-line\"> </span>\n  <span class=\"cloud\"> </span>\n  <h2>{{weather.temperature}}<sup class=\"degree\">°</sup></h2>\n  <h6>Water {{weather.water}}<sup class=\"degree\">°</sup></h6>\n</div>\n"
 
 /***/ }),
 
@@ -597,15 +605,16 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var TemperaturComponent = /** @class */ (function () {
     function TemperaturComponent() {
     }
-    TemperaturComponent.prototype.ngOnInit = function () {
-    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], TemperaturComponent.prototype, "weather", void 0);
     TemperaturComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-temperatur',
             template: __webpack_require__(/*! ./temperatur.component.html */ "./src/app/element-right/temperatur/temperatur.component.html"),
             styles: [__webpack_require__(/*! ./temperatur.component.css */ "./src/app/element-right/temperatur/temperatur.component.css")]
-        }),
-        __metadata("design:paramtypes", [])
+        })
     ], TemperaturComponent);
     return TemperaturComponent;
 }());

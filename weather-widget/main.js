@@ -41,7 +41,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Hot Weather Widget</h1>\n<div class=\"element\">\n  <div class=\"element-left\">\n    <app-element-left (changeByType)=\"changeType($event)\" (selectByResort)=\"selectResort($event)\"></app-element-left>\n  </div>\n  <div class=\"element-right\">\n    <app-temperatur [weather]=\"resort.weather\"></app-temperatur>\n    <app-teddy-bear [socialInfo]=\"resort.social_info\"></app-teddy-bear>\n  </div>\n  <div class=\"clear\"> </div>\n</div>\n<div class=\"copy-right\">\n  <p>© 2015 Hot Weather Widget. All rights reserved | Design by  <a href=\"http://w3layouts.com/\" target=\"_blank\">  W3layouts </a></p>\n</div>\n\n"
+module.exports = "<h1>Hot Weather Widget</h1>\n<div class=\"element\">\n  <div class=\"element-left\">\n    <app-element-left></app-element-left>\n  </div>\n  <div class=\"element-right\">\n    <app-element-right></app-element-right>\n  </div>\n  <div class=\"clear\"> </div>\n</div>\n<div class=\"copy-right\">\n  <p>© 2015 Hot Weather Widget. All rights reserved | Design by  <a href=\"http://w3layouts.com/\" target=\"_blank\">  W3layouts </a></p>\n</div>"
 
 /***/ }),
 
@@ -56,7 +56,6 @@ module.exports = "<h1>Hot Weather Widget</h1>\n<div class=\"element\">\n  <div c
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./data */ "./src/app/data.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -64,21 +63,10 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 
-
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
         this.title = 'weather-widget';
-        this.type = '';
-        this.resort = _data__WEBPACK_IMPORTED_MODULE_1__["resorts"][1];
     }
-    AppComponent.prototype.changeType = function (value) {
-        console.log(value);
-        this.type = value;
-    };
-    AppComponent.prototype.selectResort = function (value) {
-        console.log(value);
-        this.resort = value;
-    };
     AppComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-root',
@@ -110,13 +98,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _element_right_temperatur_temperatur_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./element-right/temperatur/temperatur.component */ "./src/app/element-right/temperatur/temperatur.component.ts");
 /* harmony import */ var _element_right_teddy_bear_teddy_bear_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./element-right/teddy-bear/teddy-bear.component */ "./src/app/element-right/teddy-bear/teddy-bear.component.ts");
 /* harmony import */ var _element_left_resort_resort_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./element-left/resort/resort.component */ "./src/app/element-left/resort/resort.component.ts");
-/* harmony import */ var _resorts_filter_pipe__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./resorts-filter.pipe */ "./src/app/resorts-filter.pipe.ts");
+/* harmony import */ var _element_left_resorts_filter_pipe__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./element-left/resorts-filter.pipe */ "./src/app/element-left/resorts-filter.pipe.ts");
+/* harmony import */ var _element_right_element_right_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./element-right/element-right.component */ "./src/app/element-right/element-right.component.ts");
+/* harmony import */ var _element_left_first_init_directive__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./element-left/first-init.directive */ "./src/app/element-left/first-init.directive.ts");
+/* harmony import */ var _common_services_resort_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./common/services/resort.service */ "./src/app/common/services/resort.service.ts");
+/* harmony import */ var _element_left_menu_filter_pipe__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./element-left/menu-filter.pipe */ "./src/app/element-left/menu-filter.pipe.ts");
+/* harmony import */ var _element_left_resort_phone_pipe__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./element-left/resort/phone.pipe */ "./src/app/element-left/resort/phone.pipe.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
+
+
 
 
 
@@ -136,12 +134,18 @@ var AppModule = /** @class */ (function () {
                 _element_right_temperatur_temperatur_component__WEBPACK_IMPORTED_MODULE_4__["TemperaturComponent"],
                 _element_right_teddy_bear_teddy_bear_component__WEBPACK_IMPORTED_MODULE_5__["TeddyBearComponent"],
                 _element_left_resort_resort_component__WEBPACK_IMPORTED_MODULE_6__["ResortComponent"],
-                _resorts_filter_pipe__WEBPACK_IMPORTED_MODULE_7__["ResortsFilterPipe"]
+                _element_left_resorts_filter_pipe__WEBPACK_IMPORTED_MODULE_7__["ResortsFilterPipe"],
+                _element_right_element_right_component__WEBPACK_IMPORTED_MODULE_8__["ElementRightComponent"],
+                _element_left_first_init_directive__WEBPACK_IMPORTED_MODULE_9__["FirstInitDirective"],
+                _element_left_menu_filter_pipe__WEBPACK_IMPORTED_MODULE_11__["MenuFilterPipe"],
+                _element_left_resort_phone_pipe__WEBPACK_IMPORTED_MODULE_12__["PhonePipe"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"]
             ],
-            providers: [],
+            providers: [
+                _common_services_resort_service__WEBPACK_IMPORTED_MODULE_10__["ResortService"]
+            ],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"]]
         })
     ], AppModule);
@@ -152,28 +156,76 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/data.ts":
-/*!*************************!*\
-  !*** ./src/app/data.ts ***!
-  \*************************/
-/*! exports provided: resorts, resorts$ */
+/***/ "./src/app/common/components/resort-subscriber/resort-subscriber.component.ts":
+/*!************************************************************************************!*\
+  !*** ./src/app/common/components/resort-subscriber/resort-subscriber.component.ts ***!
+  \************************************************************************************/
+/*! exports provided: ResortSubscriberComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ResortSubscriberComponent", function() { return ResortSubscriberComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_resort_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/resort.service */ "./src/app/common/services/resort.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+var ResortSubscriberComponent = /** @class */ (function () {
+    function ResortSubscriberComponent(_resortService, _cd) {
+        this._resortService = _resortService;
+        this._cd = _cd;
+    }
+    ResortSubscriberComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.resortSubscription = this._resortService.getResort.subscribe(function (resort) {
+            _this.resort = resort;
+            _this._cd.detectChanges();
+        });
+    };
+    ResortSubscriberComponent.prototype.ngOnDestroy = function () {
+        this.resortSubscription.unsubscribe();
+    };
+    ResortSubscriberComponent = __decorate([
+        __param(0, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_services_resort_service__WEBPACK_IMPORTED_MODULE_1__["ResortService"])),
+        __param(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectorRef"])),
+        __metadata("design:paramtypes", [_services_resort_service__WEBPACK_IMPORTED_MODULE_1__["ResortService"],
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectorRef"]])
+    ], ResortSubscriberComponent);
+    return ResortSubscriberComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/common/services/data.ts":
+/*!*****************************************!*\
+  !*** ./src/app/common/services/data.ts ***!
+  \*****************************************/
+/*! exports provided: resorts */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "resorts", function() { return resorts; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "resorts$", function() { return resorts$; });
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var rxjs_internal_operators__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs/internal/operators */ "./node_modules/rxjs/internal/operators/index.js");
-/* harmony import */ var rxjs_internal_operators__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(rxjs_internal_operators__WEBPACK_IMPORTED_MODULE_1__);
-
-
 var resorts = [
     {
         id: 1,
         img: 'assets/images/hotel1.jpeg',
         address: 'Ekb hotel 1',
-        phone: '+7123456789',
+        phone: Math.floor(Math.random() * 10000000000),
         weather: {
             title: 'Sunny bolearic islands',
             icon: 'sunny',
@@ -192,7 +244,7 @@ var resorts = [
         id: 2,
         img: 'assets/images/hotel2.jpeg',
         address: 'Ekb hotel 2',
-        phone: '+7123456789',
+        phone: Math.floor(Math.random() * 10000000000),
         weather: {
             title: 'Do not forget the sunscreen',
             icon: 'sunny',
@@ -211,7 +263,7 @@ var resorts = [
         id: 3,
         img: 'assets/images/hotel3.jpeg',
         address: 'Ekb hotel 3',
-        phone: '+71234567894',
+        phone: Math.floor(Math.random() * 10000000000),
         weather: {
             title: 'Don\'t forget raincoat',
             icon: 'rainy',
@@ -230,7 +282,7 @@ var resorts = [
         id: 4,
         img: 'assets/images/tour1.jpeg',
         address: 'Ekb tour 1',
-        phone: '+7123456789',
+        phone: Math.floor(Math.random() * 10000000000),
         weather: {
             title: 'Go to bed',
             icon: 'night',
@@ -249,7 +301,7 @@ var resorts = [
         id: 5,
         img: 'assets/images/tour2.jpeg',
         address: 'Ekb tour 2',
-        phone: '0986071482',
+        phone: Math.floor(Math.random() * 10000000000),
         weather: {
             title: 'Time to sleep',
             icon: 'night',
@@ -268,7 +320,7 @@ var resorts = [
         id: 6,
         img: 'assets/images/tour3.jpeg',
         address: 'Ekb tour 3',
-        phone: '0986071482',
+        phone: Math.floor(Math.random() * 10000000000),
         weather: {
             title: 'Time to sleep',
             icon: 'night',
@@ -287,7 +339,7 @@ var resorts = [
         id: 7,
         img: 'assets/images/fish1.jpeg',
         address: 'Ekb fish 1',
-        phone: '0986071482',
+        phone: Math.floor(Math.random() * 10000000000),
         weather: {
             title: 'Time to sleep',
             icon: 'night',
@@ -306,7 +358,7 @@ var resorts = [
         id: 8,
         img: 'assets/images/fish2.jpeg',
         address: 'Ekb fish 2',
-        phone: '0986071482',
+        phone: Math.floor(Math.random() * 10000000000),
         weather: {
             title: 'Time to sleep',
             icon: 'night',
@@ -325,7 +377,7 @@ var resorts = [
         id: 9,
         img: 'assets/images/fish3.jpeg',
         address: 'Ekb fish 3',
-        phone: '0986071482',
+        phone: Math.floor(Math.random() * 10000000000),
         weather: {
             title: 'Time to sleep',
             icon: 'night',
@@ -341,7 +393,63 @@ var resorts = [
         type: 'fishing'
     }
 ];
-var resorts$ = Object(rxjs__WEBPACK_IMPORTED_MODULE_0__["of"])(resorts).pipe(Object(rxjs_internal_operators__WEBPACK_IMPORTED_MODULE_1__["delay"])(3000));
+
+
+/***/ }),
+
+/***/ "./src/app/common/services/resort.service.ts":
+/*!***************************************************!*\
+  !*** ./src/app/common/services/resort.service.ts ***!
+  \***************************************************/
+/*! exports provided: ResortService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ResortService", function() { return ResortService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _data__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./data */ "./src/app/common/services/data.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var ResortService = /** @class */ (function () {
+    function ResortService() {
+        this._resort$$ = new rxjs__WEBPACK_IMPORTED_MODULE_1__["ReplaySubject"](1);
+    }
+    Object.defineProperty(ResortService.prototype, "resorts", {
+        get: function () {
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(_data__WEBPACK_IMPORTED_MODULE_2__["resorts"]);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(ResortService.prototype, "getResort", {
+        get: function () {
+            return this._resort$$.asObservable();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(ResortService.prototype, "setResort", {
+        set: function (resort) {
+            this._resort$$.next(resort);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    ResortService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])()
+    ], ResortService);
+    return ResortService;
+}());
+
 
 
 /***/ }),
@@ -364,7 +472,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"element-bg-img\"><img src=\"assets/images/1.jpg\" alt=\"\" class=\"img-responsive\"> </div>\n<div class=\"element-left-bottom\">\n  <div class=\"ele-strip\">\n    <ul>\n      <li><a href=\"#\" (click)=\"change($event)\">Hotel</a></li>\n      <li><a href=\"#\" (click)=\"change($event)\">Fishing</a></li>\n      <li><a href=\"#\" (click)=\"change($event)\">Tours</a></li>\n      <li><a href=\"#\" (click)=\"change($event)\">Weather</a></li>\n      <li><a href=\"#\" (click)=\"change($event)\">All</a></li>\n    </ul>\n  </div>\n  <div class=\"village\">\n    <h3>Righteous indignation & like</h3>\n    <span class=\"line\"> </span>\n    <div class=\"activity_box\">\n      <div class=\"scrollbar\" id=\"style-2\" *ngIf=\"resorts$ | async as resorts; else loadingTemplate\">\n        <app-resort\n                *ngFor=\"let resort of resorts | resortsFilter:type\"\n                [resort]=\"resort\"\n                (click)=\"select(resort)\"\n        >\n        </app-resort>\n      </div>\n    </div>\n  </div>\n</div>\n<ng-template #loadingTemplate>\n  ... loading\n</ng-template>"
+module.exports = "<div class=\"element-bg-img\"><img src=\"assets/images/1.jpg\" alt=\"\" class=\"img-responsive\"> </div>\n<div class=\"element-left-bottom\">\n  <div class=\"ele-strip\">\n    <ul>\n      <li *ngFor=\"let type of resorts | menuFilter; last as l\"\n          [ngClass]=\"{'anc-bor':l, active: type === type}\"\n          (click)=\"filterResort(type)\"\n      >\n        <a>{{type}}</a>\n      </li>\n    </ul>\n  </div>\n  <div class=\"village\">\n    <h3>Righteous indignation & like</h3>\n    <span class=\"line\"> </span>\n    <div class=\"activity_box\">\n      <div class=\"scrollbar\" id=\"style-2\" *ngIf=\"resorts; else loadingTemplate\">\n        <app-resort\n                appFirstInit\n                *ngFor=\"let resort of resorts | resortsFilter:type; first as f\"\n                [first]=\"f\"\n                [resort]=\"resort\"\n                (click)=\"selectResort(resort)\"\n        >\n        </app-resort>\n      </div>\n    </div>\n  </div>\n</div>\n<ng-template #loadingTemplate>\n  ... loading\n</ng-template>"
 
 /***/ }),
 
@@ -379,7 +487,7 @@ module.exports = "<div class=\"element-bg-img\"><img src=\"assets/images/1.jpg\"
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ElementLeftComponent", function() { return ElementLeftComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../data */ "./src/app/data.ts");
+/* harmony import */ var _common_services_resort_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../common/services/resort.service */ "./src/app/common/services/resort.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -392,39 +500,167 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var ElementLeftComponent = /** @class */ (function () {
-    function ElementLeftComponent() {
-        this.changeByType = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        this.selectByResort = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        this.resorts$ = _data__WEBPACK_IMPORTED_MODULE_1__["resorts$"];
+    function ElementLeftComponent(_resortService) {
+        this._resortService = _resortService;
         this.type = '';
     }
-    ElementLeftComponent.prototype.change = function (event) {
-        var li = event.target;
-        this.type = li.innerHTML;
-        this.changeByType.emit(li.innerHTML);
-    };
-    ElementLeftComponent.prototype.select = function (resort) {
-        this.selectByResort.emit(resort);
-    };
     ElementLeftComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this._resortService.resorts.subscribe(function (resorts) {
+            _this.resorts = resorts;
+            _this.type = resorts[0].type;
+        });
     };
-    __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
-        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"])
-    ], ElementLeftComponent.prototype, "changeByType", void 0);
-    __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
-        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"])
-    ], ElementLeftComponent.prototype, "selectByResort", void 0);
+    ElementLeftComponent.prototype.selectResort = function (resort) {
+        console.log(resort);
+        this._resortService.setResort = resort;
+    };
+    ElementLeftComponent.prototype.filterResort = function (type) {
+        console.log(type);
+        this.type = type;
+    };
     ElementLeftComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-element-left',
             template: __webpack_require__(/*! ./element-left.component.html */ "./src/app/element-left/element-left.component.html"),
             styles: [__webpack_require__(/*! ./element-left.component.css */ "./src/app/element-left/element-left.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_common_services_resort_service__WEBPACK_IMPORTED_MODULE_1__["ResortService"]])
     ], ElementLeftComponent);
     return ElementLeftComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/element-left/first-init.directive.ts":
+/*!******************************************************!*\
+  !*** ./src/app/element-left/first-init.directive.ts ***!
+  \******************************************************/
+/*! exports provided: FirstInitDirective */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FirstInitDirective", function() { return FirstInitDirective; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _common_services_resort_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../common/services/resort.service */ "./src/app/common/services/resort.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var FirstInitDirective = /** @class */ (function () {
+    function FirstInitDirective(_resortService) {
+        this._resortService = _resortService;
+    }
+    FirstInitDirective.prototype.ngOnInit = function () {
+        if (!this.first) {
+            return;
+        }
+        this._resortService.setResort = this.resort;
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], FirstInitDirective.prototype, "resort", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], FirstInitDirective.prototype, "first", void 0);
+    FirstInitDirective = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"])({
+            selector: '[appFirstInit]'
+        }),
+        __metadata("design:paramtypes", [_common_services_resort_service__WEBPACK_IMPORTED_MODULE_1__["ResortService"]])
+    ], FirstInitDirective);
+    return FirstInitDirective;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/element-left/menu-filter.pipe.ts":
+/*!**************************************************!*\
+  !*** ./src/app/element-left/menu-filter.pipe.ts ***!
+  \**************************************************/
+/*! exports provided: MenuFilterPipe */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MenuFilterPipe", function() { return MenuFilterPipe; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var MenuFilterPipe = /** @class */ (function () {
+    function MenuFilterPipe() {
+    }
+    MenuFilterPipe.prototype.transform = function (resorts) {
+        if (!Array.isArray(resorts)) {
+            return new Set();
+        }
+        return new Set(resorts.map(function (resort) { return resort.type; }));
+    };
+    MenuFilterPipe = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Pipe"])({
+            name: 'menuFilter'
+        })
+    ], MenuFilterPipe);
+    return MenuFilterPipe;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/element-left/resort/phone.pipe.ts":
+/*!***************************************************!*\
+  !*** ./src/app/element-left/resort/phone.pipe.ts ***!
+  \***************************************************/
+/*! exports provided: PhonePipe */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PhonePipe", function() { return PhonePipe; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var PhonePipe = /** @class */ (function () {
+    function PhonePipe() {
+    }
+    PhonePipe.prototype.transform = function (phone) {
+        if (!phone) {
+            return '';
+        }
+        var phoneStr = phone.toString();
+        return phoneStr.slice(0, 3) + "\n     " + phoneStr.slice(3, 7) + " " + phoneStr.slice(7, 10);
+    };
+    PhonePipe = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Pipe"])({
+            name: 'phone'
+        })
+    ], PhonePipe);
+    return PhonePipe;
 }());
 
 
@@ -449,7 +685,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"activity-row\">\n  <div class=\"activity-desc\">\n    <h5>Resort Address</h5>\n    <p>{{resort.address}}</p>\n    <h6>Tel: {{resort.phone}}</h6>\n  </div>\n  <div class=\"activity-img\">\n    <ul>\n      <li><img src=\"{{resort.img}}\"  alt=\"{{resort.social_info.title}}\" style=\"width: 50px;\"/></li>\n    </ul>\n  </div>\n  <div class=\"clear\"> </div>\n</div>"
+module.exports = "<div class=\"activity-row\">\n  <div class=\"activity-desc\">\n    <h5>Resort Address</h5>\n    <p>{{resort.address}}</p>\n    <h6>Tel: +{{resort.phone | phone}}</h6>\n  </div>\n  <div class=\"activity-img\">\n    <ul>\n      <li><img src=\"{{resort.img}}\"  alt=\"{{resort.social_info.title}}\" style=\"width: 50px;\"/></li>\n    </ul>\n  </div>\n  <div class=\"clear\"> </div>\n</div>"
 
 /***/ }),
 
@@ -495,138 +731,10 @@ var ResortComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/element-right/teddy-bear/teddy-bear.component.css":
-/*!*******************************************************************!*\
-  !*** ./src/app/element-right/teddy-bear/teddy-bear.component.css ***!
-  \*******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ "./src/app/element-right/teddy-bear/teddy-bear.component.html":
-/*!********************************************************************!*\
-  !*** ./src/app/element-right/teddy-bear/teddy-bear.component.html ***!
-  \********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"teddy-bear\">\n  <div class=\"teddy-text\">\n    <h4>{{socialInfo.title}}</h4>\n    <span class=\"w-line\"> </span>\n    <img src=\"{{socialInfo.img}}\" alt=\"\"  class=\"img-responsive\">\n  </div>\n  <div class=\"teddy-follow\">\n    <ul>\n      <li class=\"folw-h\"><h3>{{socialInfo.followers}}</h3>\n        <p>Followers</p>\n      </li>\n      <li><h3>{{socialInfo.following}}</h3>\n        <p>Following</p>\n      </li>\n    </ul>\n  </div>\n</div>\n"
-
-/***/ }),
-
-/***/ "./src/app/element-right/teddy-bear/teddy-bear.component.ts":
-/*!******************************************************************!*\
-  !*** ./src/app/element-right/teddy-bear/teddy-bear.component.ts ***!
-  \******************************************************************/
-/*! exports provided: TeddyBearComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TeddyBearComponent", function() { return TeddyBearComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var TeddyBearComponent = /** @class */ (function () {
-    function TeddyBearComponent() {
-    }
-    __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
-        __metadata("design:type", Object)
-    ], TeddyBearComponent.prototype, "socialInfo", void 0);
-    TeddyBearComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-teddy-bear',
-            template: __webpack_require__(/*! ./teddy-bear.component.html */ "./src/app/element-right/teddy-bear/teddy-bear.component.html"),
-            styles: [__webpack_require__(/*! ./teddy-bear.component.css */ "./src/app/element-right/teddy-bear/teddy-bear.component.css")]
-        })
-    ], TeddyBearComponent);
-    return TeddyBearComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/element-right/temperatur/temperatur.component.css":
-/*!*******************************************************************!*\
-  !*** ./src/app/element-right/temperatur/temperatur.component.css ***!
-  \*******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ "./src/app/element-right/temperatur/temperatur.component.html":
-/*!********************************************************************!*\
-  !*** ./src/app/element-right/temperatur/temperatur.component.html ***!
-  \********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"temperatur\">\n  <h5>{{weather.title}}</h5>\n  <span class=\"w-line\"> </span>\n  <span class=\"cloud\"> </span>\n  <h2>{{weather.temperature}}<sup class=\"degree\">°</sup></h2>\n  <h6>Water {{weather.water}}<sup class=\"degree\">°</sup></h6>\n</div>\n"
-
-/***/ }),
-
-/***/ "./src/app/element-right/temperatur/temperatur.component.ts":
-/*!******************************************************************!*\
-  !*** ./src/app/element-right/temperatur/temperatur.component.ts ***!
-  \******************************************************************/
-/*! exports provided: TemperaturComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TemperaturComponent", function() { return TemperaturComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var TemperaturComponent = /** @class */ (function () {
-    function TemperaturComponent() {
-    }
-    __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
-        __metadata("design:type", Object)
-    ], TemperaturComponent.prototype, "weather", void 0);
-    TemperaturComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-temperatur',
-            template: __webpack_require__(/*! ./temperatur.component.html */ "./src/app/element-right/temperatur/temperatur.component.html"),
-            styles: [__webpack_require__(/*! ./temperatur.component.css */ "./src/app/element-right/temperatur/temperatur.component.css")]
-        })
-    ], TemperaturComponent);
-    return TemperaturComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/resorts-filter.pipe.ts":
-/*!****************************************!*\
-  !*** ./src/app/resorts-filter.pipe.ts ***!
-  \****************************************/
+/***/ "./src/app/element-left/resorts-filter.pipe.ts":
+/*!*****************************************************!*\
+  !*** ./src/app/element-left/resorts-filter.pipe.ts ***!
+  \*****************************************************/
 /*! exports provided: ResortsFilterPipe */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -661,6 +769,211 @@ var ResortsFilterPipe = /** @class */ (function () {
     ], ResortsFilterPipe);
     return ResortsFilterPipe;
 }());
+
+
+
+/***/ }),
+
+/***/ "./src/app/element-right/element-right.component.css":
+/*!***********************************************************!*\
+  !*** ./src/app/element-right/element-right.component.css ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/element-right/element-right.component.html":
+/*!************************************************************!*\
+  !*** ./src/app/element-right/element-right.component.html ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<app-temperatur></app-temperatur>\n<app-teddy-bear></app-teddy-bear>\n"
+
+/***/ }),
+
+/***/ "./src/app/element-right/element-right.component.ts":
+/*!**********************************************************!*\
+  !*** ./src/app/element-right/element-right.component.ts ***!
+  \**********************************************************/
+/*! exports provided: ElementRightComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ElementRightComponent", function() { return ElementRightComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var ElementRightComponent = /** @class */ (function () {
+    function ElementRightComponent() {
+    }
+    ElementRightComponent.prototype.ngOnInit = function () {
+    };
+    ElementRightComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-element-right',
+            template: __webpack_require__(/*! ./element-right.component.html */ "./src/app/element-right/element-right.component.html"),
+            styles: [__webpack_require__(/*! ./element-right.component.css */ "./src/app/element-right/element-right.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], ElementRightComponent);
+    return ElementRightComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/element-right/teddy-bear/teddy-bear.component.css":
+/*!*******************************************************************!*\
+  !*** ./src/app/element-right/teddy-bear/teddy-bear.component.css ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/element-right/teddy-bear/teddy-bear.component.html":
+/*!********************************************************************!*\
+  !*** ./src/app/element-right/teddy-bear/teddy-bear.component.html ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"teddy-bear\">\n  <div class=\"teddy-text\">\n    <h4>{{resort.social_info.title}}</h4>\n    <span class=\"w-line\"> </span>\n    <img src=\"{{resort.social_info.img}}\" alt=\"\"  class=\"img-responsive\">\n  </div>\n  <div class=\"teddy-follow\">\n    <ul>\n      <li class=\"folw-h\"><h3>{{resort.social_info.followers}}</h3>\n        <p>Followers</p>\n      </li>\n      <li><h3>{{resort.social_info.following}}</h3>\n        <p>Following</p>\n      </li>\n    </ul>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/element-right/teddy-bear/teddy-bear.component.ts":
+/*!******************************************************************!*\
+  !*** ./src/app/element-right/teddy-bear/teddy-bear.component.ts ***!
+  \******************************************************************/
+/*! exports provided: TeddyBearComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TeddyBearComponent", function() { return TeddyBearComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _common_components_resort_subscriber_resort_subscriber_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../common/components/resort-subscriber/resort-subscriber.component */ "./src/app/common/components/resort-subscriber/resort-subscriber.component.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+var TeddyBearComponent = /** @class */ (function (_super) {
+    __extends(TeddyBearComponent, _super);
+    function TeddyBearComponent() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    TeddyBearComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-teddy-bear',
+            template: __webpack_require__(/*! ./teddy-bear.component.html */ "./src/app/element-right/teddy-bear/teddy-bear.component.html"),
+            styles: [__webpack_require__(/*! ./teddy-bear.component.css */ "./src/app/element-right/teddy-bear/teddy-bear.component.css")]
+        })
+    ], TeddyBearComponent);
+    return TeddyBearComponent;
+}(_common_components_resort_subscriber_resort_subscriber_component__WEBPACK_IMPORTED_MODULE_1__["ResortSubscriberComponent"]));
+
+
+
+/***/ }),
+
+/***/ "./src/app/element-right/temperatur/temperatur.component.css":
+/*!*******************************************************************!*\
+  !*** ./src/app/element-right/temperatur/temperatur.component.css ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/element-right/temperatur/temperatur.component.html":
+/*!********************************************************************!*\
+  !*** ./src/app/element-right/temperatur/temperatur.component.html ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"temperatur\">\n  <h5>{{resort.weather.title}}</h5>\n  <span class=\"w-line\"> </span>\n  <span class=\"cloud\"> </span>\n  <h2>{{resort.weather.temperature}}<sup class=\"degree\">°</sup></h2>\n  <h6>Water {{resort.weather.water}}<sup class=\"degree\">°</sup></h6>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/element-right/temperatur/temperatur.component.ts":
+/*!******************************************************************!*\
+  !*** ./src/app/element-right/temperatur/temperatur.component.ts ***!
+  \******************************************************************/
+/*! exports provided: TemperaturComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TemperaturComponent", function() { return TemperaturComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _common_components_resort_subscriber_resort_subscriber_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../common/components/resort-subscriber/resort-subscriber.component */ "./src/app/common/components/resort-subscriber/resort-subscriber.component.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+var TemperaturComponent = /** @class */ (function (_super) {
+    __extends(TemperaturComponent, _super);
+    function TemperaturComponent() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    TemperaturComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-temperatur',
+            template: __webpack_require__(/*! ./temperatur.component.html */ "./src/app/element-right/temperatur/temperatur.component.html"),
+            styles: [__webpack_require__(/*! ./temperatur.component.css */ "./src/app/element-right/temperatur/temperatur.component.css")]
+        })
+    ], TemperaturComponent);
+    return TemperaturComponent;
+}(_common_components_resort_subscriber_resort_subscriber_component__WEBPACK_IMPORTED_MODULE_1__["ResortSubscriberComponent"]));
 
 
 
